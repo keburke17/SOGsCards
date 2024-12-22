@@ -18,10 +18,10 @@ Players can refresh metadata to see live score
 At Desired Block Height - Game calculates winner and distributes pot  
 
 # Tx Outline
-Initiate Game
-    Accept Game Invite
-Start Game/Submit Drafted Teams
-    cache player stats
-Calculate Winner
-    take new snapshot and calculate delta to determine winner
-    distribute pot
+* Initiate Game
+    * Accept Game Invite
+* Start Game/Submit Drafted Teams
+    * cache player stats
+* Calculate Winner
+    * take new snapshot and calculate delta to determine winner
+    * distribute pot
