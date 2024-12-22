@@ -19,9 +19,9 @@ At Desired Block Height - Game calculates winner and distributes pot
 
 # Tx Outline
 Initiate Game
-Accept Game Invite
+    Accept Game Invite
 Start Game/Submit Drafted Teams
-cache player stats
+    cache player stats
 Calculate Winner
-take new snapshot and calculate delta to determine winner
-distribute pot
+    take new snapshot and calculate delta to determine winner
+    distribute pot
