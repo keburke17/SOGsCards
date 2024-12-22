@@ -4,6 +4,8 @@ Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
 ## Current
 [] Study GPT responses for deploying flask/python from MacBook  
 [] Study GPT responses for BTC transaction dev process  
+[] Review Youtube videos on ESPN/sports APIs
+    https://www.youtube.com/results?search_query=espn+player+stat+api
 ## Next Up
 ## Future
 
