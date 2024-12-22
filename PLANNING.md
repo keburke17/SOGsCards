@@ -1,11 +1,25 @@
-Game Outline
-Set plans
-Baseball cards draft UI w simple tx sequence 
-refresh meta data from an API feed of player season stats. 
-Start game tx - initiate multisig wallet w draft settings. 
-Game UI to select players. Cache player stats (draft tx) and calc delta to generate scoring. 
-Finalize score tx - distribute pledged assets
+PLANNING
+Current
 ???Study GPT responses for deploying flask/python from MacBook
+Next Up
+Future
 
-BTC Questins
-Is it possible to ‘send tx’ in multi-sig? i.e. wallet shows pop-up? Pop-up if in app waiting room?
+Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
+
+Game Outline
+Player 1 Sets Game Definitions via Web UI, including satoshis pledged
+Start Game w Friend - Send Join/Invite Tx - Player 1 invites Player 2
+Players draft their teams using Web UI - Simple Folder/Table View; Baseball cards when selecting individual players
+Both players agreeing to their draft - Both Sign/Submit Draft Tx
+Starts new Game with desired end-time/block heigh
+Players can refresh metadata to see live score
+At Desired Block Height - Game calculates winner and distributes pot
+
+Tx Outline
+Initiate Game
+Accept Game Invite
+Start Game/Submit Drafted Teams
+- cache player stats
+Calculate Winner
+- take new snapshot and calculate delta to determine winner
+- distribute pot
