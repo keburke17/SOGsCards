@@ -2,13 +2,15 @@
 Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG  
 
 ## Current
-[] Study GPT responses for deploying flask/python from MacBook  
+[x] Study GPT responses for deploying flask/python from MacBook
+[] Fix GPT-designed flask deployment
 [] Study GPT responses for BTC transaction dev process  
-[] Review Youtube videos on ESPN/sports APIs
-    https://www.youtube.com/results?search_query=espn+player+stat+api
+[] Determine Vault/Wallet multi-sig approach
+* Have two initiate a wallet itself via web app; wallet holds the wager UTXO and settings/teams UTXO
+[] Determine bot as 3rd party multi-sig participant; holds wallet and checks wallet for block height to initiate score tx?
+
 ## Next Up
 ## Future
-
 
 # Game Outline
 1. Player 1 Sets Game Definitions via Web UI, including satoshis pledged  
@@ -27,3 +29,9 @@ Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
 * Calculate Winner
     * take new snapshot and calculate delta to determine winner
     * distribute pot
+
+# Game Settings
+
+# Draft Logic/flow
+* Complete Random - X players
+* Fill Roster Positions 

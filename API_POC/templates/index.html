@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Stats App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        async function fetchStats() {
+            const resultDiv = document.getElementById("results");
+            resultDiv.innerHTML = "Loading...";
+
+            try {
+                const response = await fetch("/fetch-stats", { method: "POST" });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                } else {
+                    resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+                }
+            } catch (err) {
+                resultDiv.innerHTML = `<p>Error: Unable to fetch stats.</p>`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Player Stats App</h1>
+        <button onclick="fetchStats()">Fetch Player Stats</button>
+        <div id="results"></div>
+    </div>
+</body>
+</html>
