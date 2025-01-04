@@ -2,6 +2,8 @@
 # Open Questions
 ## BTC Questions
 * Is it possible to ‘send tx’ in multi-sig? i.e. wallet shows pop-up? Pop-up if in app waiting room?
+* can you create a Tx and hold it to a block height? 
+* Pizza Pets - are the pets calling anything; or is meta data just updated each block? are they only 'meta alive/dead'?
 
 
 # Ordinal Theory

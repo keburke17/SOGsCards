@@ -7,7 +7,9 @@ Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
 [] Study GPT responses for BTC transaction dev process  
 [] Determine Vault/Wallet multi-sig approach
 * Have two initiate a wallet itself via web app; wallet holds the wager UTXO and settings/teams UTXO
-[] Determine bot as 3rd party multi-sig participant; holds wallet and checks wallet for block height to initiate score tx?
+* Determine bot as 3rd party multi-sig participant; holds wallet and checks wallet for block height to initiate score tx?
+[] scoring tx strategy - 
+* Inscribe scores on chain at block height X; have that be child to orig tx? then parent triggers 'settle wager' tx at x+1?
 
 ## Next Up
 ## Future
@@ -21,6 +23,7 @@ Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
 6. Players can refresh metadata to see live score  
 7. At Desired Block Height - Game calculates winner and distributes pot  
 
+
 # Tx Outline
 * Initiate Game
     * Accept Game Invite
@@ -30,8 +33,25 @@ Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
     * take new snapshot and calculate delta to determine winner
     * distribute pot
 
-# Game Settings
 
-# Draft Logic/flow
-* Complete Random - X players
-* Fill Roster Positions 
+# POC Requirements
+* Initiate multisig Tx to confirm settings/wager
+    * Web App to inititate Tx; One wallet invites the other and waits for confirmation; initiating wallet chooses the settings
+        * Settings include Wager and Block Height to complete
+        * Question - can wallet show custom text to communicate the game settings?
+    * Upon Confirmation - 
+        * Backend - Inscribe - Draft 5 players and track 1 Stat; hardcode example 'PlayerDataDraft' and hardcode example 'PlayerDataResult' with example results to show delta in player stats
+* Initiate Tx to score game in X Block Height
+    * Backend - calculates winning wallet based on 'PlayerDataDelta'; which team has a combined higher point total
+    * Inscribe winner inscription and distribute wager to winning wallet
+    * Question - can you initiate a future tx to be sent at X block height?
+    * Question - can the initial Tx 'take the UTXOs' from the initiated chat? OR is held by a 3rd/independent wallet/vault?
+
+
+# POC v2 Requirements
+* Add API Usage for Live/Random Players
+    * API randomizes player selection and caches Player Points and/or Game Results
+* Add API usage for Scoring Rounds
+    * API caches new Player Points and/or Game Results
+* Add Manual Draft
+    * Subsequent multisig Tx - Child Tx - both teams are drafted manually via player review/selection feature
