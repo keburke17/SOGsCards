@@ -9,7 +9,18 @@ Goal: Proof of Concept - Tx Sequence - Higher or Lower based on RNG
 * Have two initiate a wallet itself via web app; wallet holds the wager UTXO and settings/teams UTXO
 * Determine bot as 3rd party multi-sig participant; holds wallet and checks wallet for block height to initiate score tx?
 [] scoring tx strategy - 
-* Inscribe scores on chain at block height X; have that be child to orig tx? then parent triggers 'settle wager' tx at x+1?
+* SOGs Card inscribes (posts) game schedule to drive website UI list; includes expected result block height
+* players initiat wager with child tx by selecting game and sending inscription to invitee wallet
+* invitee selects wager UTXO and sends a copy back to intiating player? 
+
+* After X block height - SOGs Cards inscribe scores as child tx; will also score each wager UTXO that was also a child of the orig schedule inscription
+that will on chain at block height X;
+ have that be child to orig tx? then parent triggers 'settle wager' tx at x+1?
+
+ * web UI - schedule page and result page
+    * schedule posts 'Upcoming Games' and result shows 'Scored Games'
+    * Clicking the Upcoming Game will initiate wager workflow; Clicking Scored Games will list Scored UTXOs and winners!
+    ms wallet holding in-progress UTXOs
 
 ## Next Up
 ## Future

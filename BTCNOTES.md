@@ -4,7 +4,16 @@
 * Is it possible to ‘send tx’ in multi-sig? i.e. wallet shows pop-up? Pop-up if in app waiting room?
 * can you create a Tx and hold it to a block height? 
 * Pizza Pets - are the pets calling anything; or is meta data just updated each block? are they only 'meta alive/dead'?
+* How do you see/relate a parent to a child inscription? how is that handled with collections?
 
+
+# Tools/Utilities/Components
+* Hiro - has ord index APIs
+    * sounds like its to supplement/compliment ord itself
+    * Indexer to follow/post new parents to the web UI.
+    * indexer to track open wages; grabbed when scoring results to 'trigger pot' release to winner.
+    * easy link for API key
+* OrdinalsBot - inscribe API
 
 # Ordinal Theory
 * Runes vs inscriptions
