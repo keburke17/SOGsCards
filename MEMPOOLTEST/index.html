@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Mempool Fee Rates and Price Ticker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .price-ticker {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Current Bitcoin Mempool Fee Rates</h2>
+    <button onclick="fetchFeeRates()">Refresh Rates</button>
+    <p><strong>Fastest (1 block):</strong> <span id="fastest">Loading...</span> sat/vB</p>
+    <p><strong>Economy (3 blocks):</strong> <span id="economy">Loading...</span> sat/vB</p>
+    <p><strong>Minimum (6 blocks):</strong> <span id="minimum">Loading...</span> sat/vB</p>
+
+    <h2>Bitcoin Price Ticker (USD)</h2>
+    <div class="price-ticker">
+        <strong>Current Price:</strong> $<span id="btcPrice">Loading...</span> USD
+        <br>
+        <button onclick="fetchBitcoinPrice()">Refresh Price</button>
+    </div>
+
+    <script>
+        // Fetch fee rates from mempool.space API
+        async function fetchFeeRates() {
+            try {
+                const response = await fetch('https://mempool.space/api/v1/fees/recommended');
+                if (!response.ok) throw new Error(`API error: ${response.statusText}`);
+                const data = await response.json();
+                document.getElementById('fastest').textContent = data.fastestFee;
+                document.getElementById('economy').textContent = data.hourFee;
+                document.getElementById('minimum').textContent = data.minimumFee;
+            } catch (error) {
+                alert(`Failed to fetch fee rates: ${error.message}`);
+            }
+        }
+
+        // Fetch Bitcoin price from CoinGecko API
+        async function fetchBitcoinPrice() {
+            try {
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+                if (!response.ok) throw new Error(`API error: ${response.statusText}`);
+                const data = await response.json();
+                document.getElementById('btcPrice').textContent = data.bitcoin.usd.toLocaleString();
+            } catch (error) {
+                alert(`Failed to fetch Bitcoin price: ${error.message}`);
+            }
+        }
+
+        // Fetch both fee rates and price on page load
+        window.onload = () => {
+            fetchFeeRates();
+            fetchBitcoinPrice();
+        };
+    </script>
+</body>
+</html>

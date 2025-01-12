@@ -14,6 +14,17 @@
     * indexer to track open wages; grabbed when scoring results to 'trigger pot' release to winner.
     * easy link for API key
 * OrdinalsBot - inscribe API
+* bitcoinjs
+    * includes support for PSBT
+    * includes support for time lock
+
+# Bitcoin Transaction Notes
+* PSBT
+    * allows multi-party signing
+* Time Locks - absolute or relative
+    * Use bitcoin script opcodes
+        * OP_CHECKLOCKTIMEVERIFY (CLTV) for absolute time-locks.
+        * OP_CHECKSEQUENCEVERIFY (CSV) for relative time-locks.
 
 # Ordinal Theory
 * Runes vs inscriptions
